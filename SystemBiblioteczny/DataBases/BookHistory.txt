@@ -1,0 +1,14 @@
+12 2 Juliusz_Słowacki Kordian admin 24.01.2023 26.01.2023
+7 2 Henryk_Sienkiewicz Krzyżacy admin 24.01.2023 26.01.2023
+2 2 Henryk_Sienkiewicz Potop admin 24.01.2023 26.01.2023
+13 2 Henryk_Sienkiewicz Krzyżacy admin 24.01.2023 26.01.2023
+5 2 Henryk_Sienkiewicz Krzyżacy admin 24.01.2023 26.01.2023
+2 2 Henryk_Sienkiewicz Potop admin 24.01.2023 26.01.2023
+12 2 Juliusz_Słowacki Kordian admin 24.01.2023 26.01.2023
+7 2 Henryk_Sienkiewicz Krzyżacy admin 24.01.2023 26.01.2023
+13 2 Henryk_Sienkiewicz Krzyżacy admin 24.01.2023 26.01.2023
+8 3 Franz_Kafka Przemiana macibol 02.01.2023 10.01.2023
+14 2 Adam_Mickiewicz Dziady_3 klient 05.01.2023 18.01.2023
+11 2 Bolesław_Prus Kamizelka klient 12.01.2023 20.01.2023
+3 3 Bolesław_Prus Kamizelka szczurwysyn 26.01.2023 26.01.2023
+7 2 Henryk_Sienkiewicz Krzyżacy admin 26.01.2023 26.01.2023

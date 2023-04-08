@@ -1,0 +1,9 @@
+1 Miecz_Przeznaczenia Andrzej_Sapkowski 4 macibol2 True
+2 Narodziny_Hordy Christie_Golden 5 admin True
+3 Mroczny_Uczeń Christie_Golden 6 ptasniemiec3 False
+4 Zbrodnie_Wojenne Christie_Golden 2 zawada1 False
+5 Arthas Christie_Golden 5 karol True
+6 Fale_Ciemności Aaron_Rosenberg 4 enpecet True
+7 Krew_elfów Andrzej_Sapkowski 4 ptasniemiec3 False
+8 Władca_Pierścieni Tolkien 3 macibol2 False
+9 test test 12 biblio False

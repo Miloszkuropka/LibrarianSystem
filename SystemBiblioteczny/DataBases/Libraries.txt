@@ -1,0 +1,5 @@
+1 Gliwice  Szkolna 32/15
+2 Gliwice  Szkolna 32/15
+3 Katowice  Ogrodowa 30/2
+4 Bytom  Domowa 21/17
+5 Bielsko-Biała  Licha 12/4

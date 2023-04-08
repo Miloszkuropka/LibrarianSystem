@@ -1,0 +1,8 @@
+ptasniemiec 1234 Wojt Pta wojtpta@polsl.de 112
+klient klient test test test@test 555
+jankoc 1234 Jan Koc jankoc@polsl.pl 998
+porada porada Marcel Porada porada@op.pl 223
+kamper kamper Kuba Kamper kamper@gmail.com 556
+test test test test test@test 321321312
+macibol 1234 Maci Bol macibol@polsl.pl 997
+zawada 1234 Toma Zaw tomazaw@brak.zasad 999

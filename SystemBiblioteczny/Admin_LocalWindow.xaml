@@ -1,0 +1,178 @@
+﻿<Window x:Class="SystemBiblioteczny.Admin_LocalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemBiblioteczny"
+        mc:Ignorable="d"
+        Title="Admin_LocalWindow" Height="432" Width="786" MaxWidth="800" MaxHeight="450" MinWidth="800" MinHeight="450">
+    <Grid>
+
+        <TabControl>
+            <TabItem Header="Wieczorki Autorskie">
+                <Grid Background="#FFF5EBD8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="82*"/>
+                        <ColumnDefinition Width="77*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="AuthorsEvnings" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="574" Height="361" Margin="7,10,0,0" IsReadOnly="true" Grid.ColumnSpan="2">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FFCCA2DC"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                                <Setter Property="BorderBrush" Value="White"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header ="Zatwierdzony" Binding="{Binding Approved}" Width="80"/>
+                            <DataGridTextColumn Header ="Osoba zgłaszająca" Binding="{Binding User}" Width="100" />
+                            <DataGridTextColumn Header ="Imię autora" Binding="{Binding FirstName}" Width="80"/>
+                            <DataGridTextColumn Header ="Nazwisko autora" Binding="{Binding LastName}" Width="100"/>
+                            <DataGridTextColumn Header ="Data" Binding="{Binding Date}" Width="70" CanUserResize="False"/>
+                            <DataGridTextColumn Header ="Godzina" Binding="{Binding Hour}" Width="50"/>
+                            <DataGridTextColumn Header ="Numer Telefonu" Binding="{Binding PhoneNumber}" Width="90"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Zatwierdź" HorizontalAlignment="Left" Margin="220,47,0,0" VerticalAlignment="Top" Height="42" Width="105" Click="Approve_button" Grid.Column="1"/>
+                    <Button Content="Odrzuć" HorizontalAlignment="Left" Margin="220,119,0,0" VerticalAlignment="Top" Height="42" Width="105" Click="Reject_button" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Nowe książki">
+                <Grid Background="#FFF5EBD8">
+                    <Grid>
+                        <DataGrid x:Name="NewApplicationsData" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="660" Height="295" Margin="0,9,0,0" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header ="Tytuł" Binding="{Binding Title}" Width="170"/>
+                                <DataGridTextColumn Header ="Autor" Binding="{Binding Author}" Width="170"/>
+                                <DataGridTextColumn Header ="Ilość" Binding="{Binding Quantity}" Width="160"/>
+                                <DataGridTextColumn Header ="Bibliotekarz zamawiający" Binding="{Binding Librarian}" Width="150"/>
+                            </DataGrid.Columns>
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#FFCCA2DC"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                                    <Setter Property="BorderBrush" Value="White"/>
+                                </Style>
+                            </DataGrid.Resources>
+                        </DataGrid>
+                    </Grid>
+                    <Button  Content="Zamów" HorizontalAlignment="Left" Margin="293,334,0,0" VerticalAlignment="Top" Height="34" Width="99" Click="OrderBook" />
+                    <Button  Content="Odrzuć" HorizontalAlignment="Left" Margin="421,334,0,0" VerticalAlignment="Top" Height="34" Width="99" Click="RejectBook"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Wymień się książkami">
+                <Grid Background="#FFF5EBD8">
+                    <DataGrid x:Name="TableExchangeBooks" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="712" Height="190" SelectionChanged="TableExchangeBooks_SelectionChanged" Margin="0,7,0,0" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header ="Id wymiany" Binding="{Binding ExchangeId}" Width="90"/>
+                            <DataGridTextColumn Header ="Id książki" Binding="{Binding Id_Book}" Width="90"/>
+                            <DataGridTextColumn Header ="Prośba od" Binding="{Binding RequestorUsername}" Width="100"/>
+                            <DataGridTextColumn Header ="Autor" Binding="{Binding Author}" Width="160"/>
+                            <DataGridTextColumn Header ="Tytuł" Binding="{Binding Title}" Width="180"/>
+                            <DataGridTextColumn Header ="Id biblioteki" Binding="{Binding Id_Library}" Width="90"/>
+                        </DataGrid.Columns>
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FFCCA2DC"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                                <Setter Property="BorderBrush" Value="White"/>
+                            </Style>
+                        </DataGrid.Resources>
+                    </DataGrid>
+                    <DataGrid x:Name="TableBooks" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="317" Height="160" Margin="26,227,0,0" SelectionChanged="TableBooks_SelectionChanged" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header ="Id" Binding="{Binding Id_Book}" Width="20"/>
+                            <DataGridTextColumn Header ="Autor" Binding="{Binding Author}" Width="80"/>
+                            <DataGridTextColumn Header ="Tytuł" Binding="{Binding Title}" Width="80"/>
+                            <DataGridCheckBoxColumn Header ="Dostępność" Binding="{Binding Availability}" Width="65"/>
+                            <DataGridTextColumn Header ="Id biblioteki" Binding="{Binding Id_Library}" Width="75"/>
+                        </DataGrid.Columns>
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FFF1D7F9"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Style>
+                        </DataGrid.Resources>
+                    </DataGrid>
+                    <Label Content="Twoje dane" HorizontalAlignment="Left" Margin="670,215,0,0" VerticalAlignment="Top" Width="114"/>
+                    <Label Content="Nazwa użytkownika" HorizontalAlignment="Left" Margin="670,268,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="nazwaLabel" Content="nazwa" HorizontalAlignment="Left" Margin="670,283,0,0" VerticalAlignment="Top" Width="114"/>
+                    <Label Content="Numer biblioteki" HorizontalAlignment="Left" Margin="670,330,0,0" VerticalAlignment="Top" Width="114"/>
+                    <Label x:Name="numerLabel" Content="numer" HorizontalAlignment="Left" Margin="670,345,0,0" VerticalAlignment="Top" Width="101"/>
+                    <Button x:Name="SendBook" Content="Wyślij dostępną książkę" HorizontalAlignment="Left" Margin="522,293,0,0" VerticalAlignment="Top" Click="SendBook_Click" Height="24" Width="135" Background="#FFCCA2DC"/>
+                    <Label Content="Id wymiany" HorizontalAlignment="Left" Margin="559,219,0,0" VerticalAlignment="Top" Width="103"/>
+                    <TextBox x:Name="SendBookLabel" HorizontalAlignment="Left" Margin="523,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" TextChanged="SendBookLabel_TextChanged" Height="24"/>
+                    <TextBox x:Name="RequestBookLabel" HorizontalAlignment="Left" Margin="365,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" TextChanged="RequestBookLabel_TextChanged" Height="24"/>
+                    <Label Content="Id książki" HorizontalAlignment="Left" Margin="406,219,0,0" VerticalAlignment="Top" Width="65"/>
+                    <Button x:Name="CancelRequest" Content="Odrzuć prośbę o książkę" HorizontalAlignment="Left" Margin="522,329,0,0" VerticalAlignment="Top" Click="CancelRequestButton" Height="24" Width="135" Background="#FFCCA2DC"/>
+                    <Button x:Name="RequestBook" Content="Poproś o książkę"  HorizontalAlignment="Left" Margin="365,295,0,0" VerticalAlignment="Top" Click="RequestForABook" Height="24" Width="135" Background="#FFCCA2DC"/>
+                    <Label Content="Podgląd kiążek" HorizontalAlignment="Left" Margin="113,202,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Wygeneruj raport">
+                <Grid Background="#FFF5EBD8">
+                    <Button Content="Generuj" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="39" Width="236" Click="GenerateRaport"/>
+                    <DatePicker x:Name="startDatePicker" HorizontalAlignment="Left" Margin="156,167,0,0" VerticalAlignment="Top" Height="33" Width="185" FontSize="18"/>
+                    <DatePicker x:Name="endDatePicker" HorizontalAlignment="Left" Margin="480,167,0,0" VerticalAlignment="Top" Height="33" Width="185" FontSize="18"/>
+                    <Label Content="Data początkowa:" HorizontalAlignment="Left" Margin="186,129,0,0" VerticalAlignment="Top" Height="36" Width="184" FontSize="16"/>
+                    <Label Content="Data końcowa:" HorizontalAlignment="Left" Margin="519,129,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label Content="Jeśli pozostawisz puste daty raport będzie obejmował wszystkie statystyki" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" FontSize="16"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Zarządzaj uprawnieniami">
+                <Grid Background="#FFF5EBD8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Pokaż listę klientów" HorizontalAlignment="Left" Margin="15,23,0,0" VerticalAlignment="Top" Width="240" Height="35" Click="ShowClientList"/>
+                    <Button Content="Pokaż listę bibliotekarzy" HorizontalAlignment="Left" Margin="15,71,0,0" VerticalAlignment="Top" Width="240" Height="35" Click="ShowLibrarianList"/>
+                    <Button Content="Pokaż listę administratorów lokalnych" HorizontalAlignment="Left" Margin="15,118,0,0" VerticalAlignment="Top" Width="240" Height="35" Click="ShowAdminList"/>
+                    <DataGrid x:Name="Person_Table" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="513" Height="320" Margin="271,0,0,0">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FFCCA2DC"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header ="Id bib." Binding="{Binding LibraryId}" Width="36" IsReadOnly="True"/>
+                            <DataGridTextColumn Header ="Nazwa użytkownika" Binding="{Binding UserName}" Width="140" IsReadOnly="True"/>
+                            <DataGridTextColumn Header ="Imię" Binding="{Binding FirstName}" Width="110" IsReadOnly="True"/>
+                            <DataGridTextColumn Header ="Nazwisko" Binding="{Binding LastName}" Width="110" IsReadOnly="True"/>
+                            <DataGridTextColumn Header ="Email" Binding="{Binding Email}" Width="110" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Margin="15,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Height="24"/>
+                    <Label Content="Podaj nazwę użytkownika" HorizontalAlignment="Left" Margin="62,156,0,0" VerticalAlignment="Top" Width="147" Height="26"/>
+                    <Button Content="Nadaj uprawnienia bibliotekarza" HorizontalAlignment="Left" Margin="15,270,0,0" VerticalAlignment="Top" Height="35" Width="240" Click="MakeClientAnLibrarian"/>
+                    <Button Content="Odbierz uprawnienia bibliotekarza" HorizontalAlignment="Left" Margin="15,320,0,0" VerticalAlignment="Top" Height="35" Width="240" Click="MakePersonAnClient"/>
+                    <Label x:Name="TabelaName" Content="" HorizontalAlignment="Left" Margin="271,5,0,0" VerticalAlignment="Top" Width="513"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ustawienia">
+                <Grid Background="#FFF5EBD8">
+                    <Label FontSize="24" Content="Nadaj nowe hasło" HorizontalAlignment="Left" Margin="108,58,0,0" VerticalAlignment="Top" Width="202"/>
+                    <Label Content="Podaj nowe hasło" HorizontalAlignment="Left" Margin="157,116,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Powtórz nowe hasło" HorizontalAlignment="Left" Margin="150,178,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Zmień hasło" HorizontalAlignment="Left" Margin="89,252,0,0" VerticalAlignment="Top" Height="35" Width="240" Click="ChangePassword"/>
+                    <Label FontSize="24" Content="Dane osobowe" HorizontalAlignment="Left" Margin="485,58,0,0" VerticalAlignment="Top" Width="170"/>
+                    <Label Content="Adres email" HorizontalAlignment="Left" Margin="534,116,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Numer telefonu" HorizontalAlignment="Left" Margin="523,178,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Zapisz zmiany" HorizontalAlignment="Left" Margin="450,252,0,0" VerticalAlignment="Top" Height="35" Width="240" Click="SaveChanges"/>
+                    <Button Content="Wyloguj" HorizontalAlignment="Left" Margin="587,339,0,0" VerticalAlignment="Top" Height="35" Width="175" Click="Return" />
+                    <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="450,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="24"/>
+                    <TextBox x:Name="PhoneBox" HorizontalAlignment="Left" Margin="450,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="24" TextChanged="PhoneBox_TextChanged"/>
+                    <PasswordBox  x:Name="PasswordBox1" HorizontalAlignment="Left" Margin="89,147,0,0" VerticalAlignment="Top" Width="240" Height="24" PasswordChanged="Password1Changed"/>
+                    <PasswordBox  x:Name="PasswordBox2" HorizontalAlignment="Left" Margin="89,205,0,0" VerticalAlignment="Top" Width="240" Height="24" PasswordChanged="Password2Changed"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+    </Grid>
+</Window>

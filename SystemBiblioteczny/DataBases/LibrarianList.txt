@@ -1,0 +1,6 @@
+macibol2 123 macibol Zaw tomazaw@brak.zasad 1 999
+biblio biblio Biblio Biblio a@a.pl 3 998
+ptasniemiec3 1234 Wojt Pta wojtpta@polsl.de 2 997
+zawada1 1234 Toma Zaw tomazaw@brak.zasad 2 997
+karol 1234 karolek merolek karol@gmail.com 4 777
+enpecet 123 npc npc npc@npc.pl 5 111
